@@ -1,0 +1,81 @@
+*{
+    margin:0px;
+    padding: 0px;
+}
+
+body{
+    background: rgb(242, 242, 242);
+    text-align: center;
+}
+
+#menu li{
+	/* Every thumbnail is a li element */
+	width:60px;
+	display:inline-block;
+	list-style:none;
+	height:45px;
+    overflow:hidden;
+    padding-top:10px;
+}
+
+#menu li.act{
+    background:url(img/active_bg.png) no-repeat;
+}
+
+#menu{
+    height:45px;
+}
+
+.slides{
+    display:flex;
+    /* justify-content: center; 改行会导致水平方向居中，也就是本来应该1显示出来的，会把中间的2显示出来 */
+    /* 加上上面一行会导致设置translateX或者margin-left的时候平均分配 */
+    /* transform:translateX(-400px);  */
+    /* margin-left:-400px; */
+    transition: transform 0.5s;
+}
+/* 做了两个div，
+是为了把内部作为一个整体来调整margin-left或者transform：translateX,然后最外面的div用来控制外部布局，
+内部div用来控制内部布局，内部布局就是flex */
+
+#slides img{
+    width: 920px;
+    /* height: 400px; */
+}
+
+.container{
+    margin:10px auto;
+
+    text-align: center;
+    width: 920px;
+    /* height: 400px; */
+    overflow: hidden;
+    /* position: relative; */
+    	/* CSS3 Box Shadow */
+	box-shadow:0 0 3px #AAAAAA;
+	
+	/* CSS3 Rounded Corners */
+	border-bottom-left-radius:4px;
+	
+	border-bottom-right-radius:4px;
+	
+	border:1px solid white;
+	
+	background:url(img/panel.jpg) repeat-x bottom center #ffffff;
+	
+	/* The width of the gallery */
+}
+
+
+
+/* img:nth-child(1){
+    z-index: 2;
+} */
+
+/* img:first-child{
+    /* margin-left: 400px; */
+    /* 如果用了justify-content: center; align-items: center;会更改为两边的距离，所以400px会变成800px。*/
+/*  }  */
+
+ /* .slide{
+} */
