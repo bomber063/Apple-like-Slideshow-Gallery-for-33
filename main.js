@@ -141,18 +141,22 @@ $(document).ready(function () {
     //鼠标进入图片和li都会停止滚动，鼠标离开图片和li都会重新开始滚动
     function stopOrBegin() {
         $('.control2>li').on('mouseenter', function () {
+            console.log(timer)
             clearInterval(timer)
         })
 
         $('.control2>li').on('mouseleave', function () {
+            console.log(timer)
             timer = intervalSlide()
         })
 
         $('.slides>img').on('mouseenter', function () {
+            console.log(timer)
             clearInterval(timer)
         })
 
         $('.slides>img').on('mouseleave', function () {
+            console.log(timer)
             timer = intervalSlide()
         })
     }
@@ -184,9 +188,11 @@ $(document).ready(function () {
     function leavePageStopOrBegin() {
         document.addEventListener('visibilitychange', function () {
             if (document.hidden) {
+                console.log(timer)
                 clearInterval(timer)
             }
             else {
+                console.log(timer)
                 timer = intervalSlide()
             }
         })
