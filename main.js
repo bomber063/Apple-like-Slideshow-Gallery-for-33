@@ -1,11 +1,12 @@
-$(document).ready(function () {
+// $(document).ready(function () {
     var intiImgeLength = $('#slides img').length
     var current = 0
     var next
 
     //初始化函数
     function init() {
-        $(slides).css('transform', 'translateX(-920px)')
+        $(slides).css('transform', 'translateX(-920px)').hide().offset()
+        $(slides).show()
         var cloneImgLast = $('#slides  img').eq(intiImgeLength - 1).clone(true)
         var cloneImg0 = $('#slides  img').eq(0).clone(true)
         $('#slides').prepend(cloneImgLast)
@@ -73,70 +74,8 @@ $(document).ready(function () {
             $('#menu li').eq(next).addClass('act');
             $('#menu li').eq(next).siblings().removeClass('act')
         }
-        // else if (current === 1 && next === 2) {
-        //     // slides.addEventListener('click', function () {
-        //     $(slides).css('transform', 'translateX(-1200px)')
-        //     console.log(`-1200px`)
-        //     console.log(`-${(next+1)*920}px`)
-        //     console.log('1到2')
-        // })
-        // }
-        // }
         current = next
     }
-    // $(document).ready(function () {
-    // setTimeout(() => {
-    //     // slides.addEventListener('click',function(){
-    //     $(slides).css('transform', 'translateX(-800px)')
-    //     // })
-    //     current=2
-    // }, 2000)
-
-    // setTimeout(() => {
-    //     // slides.addEventListener('click',function(){
-    //     $(slides).css('transform', 'translateX(-1200px)')
-    //     // })
-    //     current=3
-    // }, 4000)
-
-    // setTimeout(() => {
-    //     // slides.addEventListener('click',function(){
-    //     $(slides).css('transform', 'translateX(-1600px)')
-    //         .one('transitionend', function () {
-    //             $(slides).css({ 'transform': 'translateX(-920px)' }).hide().offset()//这里的offset()会返回一个包含top 和 left属性的对象，如果不写这个offset()就不能偷梁换柱。
-    //             $(slides).show()
-    //         })
-    //     current=1
-    //     // })
-    // }, 6000)
-    // })
-
-    // setTimeout(() => {
-    //     // slides.addEventListener('click',function(){
-    //     $(slides).css('transform', 'translateX(0px)')
-    //         .one('transitionend', function () {
-    //             $(slides).css({ 'transform': 'translateX(-1200px)' }).hide().offset()//这里的offset()会返回一个包含top 和 left属性的对象，如果不写这个offset()就不能偷梁换柱。
-    //             $(slides).show()
-    //         })
-    //     current = 2
-    //     // })
-    // }, 2000)
-    // // })
-
-    // $('li').eq(0).on('click', function () {
-    //     gotoIndex(0)
-    //     console.log('firstbutton'+current)
-    // })
-
-    // $('li').eq(1).on('click', function () {
-    //     gotoIndex(1)
-    //     console.log('firstbutton'+current)
-    // })
-
-    // $('li').eq(2).on('click', function () {
-    //     gotoIndex(2)
-    //     console.log('firstbutton'+current)
-    // })
 
     //鼠标进入图片和li都会停止滚动，鼠标离开图片和li都会重新开始滚动
     function stopOrBegin() {
@@ -170,20 +109,6 @@ $(document).ready(function () {
         }
     }
 
-    //点击li进入下一张图片
-    // function gotoIndexNext() {
-    //         $('.control1 > li').eq(0).on('click', function () {
-    //             gotoIndex(current-1)
-    //         })
-    // }
-
-    //点击li进入上一张图片
-    // function gotoIndexLast() {
-    //     $('.control1 > li').eq(1).on('click', function () {
-    //         gotoIndex(current+1)
-    //     })
-    // }
-
     //离开页面轮播滚动停止，打开并显示该页面轮播滚动继续原位置开始
     function leavePageStopOrBegin() {
         document.addEventListener('visibilitychange', function () {
@@ -199,5 +124,5 @@ $(document).ready(function () {
     }
 
 
-});
+// });
 
